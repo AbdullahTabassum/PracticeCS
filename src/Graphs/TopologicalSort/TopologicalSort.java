@@ -4,31 +4,33 @@ import Graphs.Node;
 
 import java.util.*;
 
+/**
+ *
+ * Topological sort works only for Directed Acyclic graph.
+ * You will also need to be given a starting point.
+ *
+ */
 public class TopologicalSort {
 
-    public static void sort(Set<Node> graph) {
+    static Stack<Node> stack = new Stack<>();
+    static Set<Node> visited = new HashSet<Node>();
 
-        Set<Node> visited = new HashSet<Node>();
-        Stack<Node> stack
+    public static void sort(Node node) {
 
 
-        //choose a node to start from
-        Node cur = getRandomNode(graph);
 
-        //add it to visited set
-        visited.add(cur);
+        //start from the starting point node and mark it as visited
+        visited.add(node);
 
-        //go through all of its neighbours and if neighbour has not been visited then visit it, i.e. all sort upon it
-        for(Node n : cur.adj) {
-            if( !visited.contains(n) ) {
-                sort(graph);
-            }
+        //now recur to all of its adjecent nodes
+        for(Node n : node.adj) {
+            if(!visited.contains(n))
+                sort(n);
         }
 
-
+        //finally add the current node to the stack
+        stack.push(node);
+        return;
     }
 
-    private static Node getRandomNode(Set<Node> g) {
-        return null;
-    }
 }
