@@ -1,6 +1,8 @@
 import Graphs.TopologicalSort.TopSortDriver;
 import LinkedLists.LinkedListDriver;
 import SearichingAndSorting.SearchingAndSortingDriver;
+import SearichingAndSorting.SortingList;
+import Trees.PrintLevelByLevel;
 
 public class Main {
 
@@ -10,6 +12,10 @@ public class Main {
         //LinkedListDriver.seperationDriver();
 
         //SearchingAndSortingDriver.driveBinarySearch();
-        LinkedListDriver.mergeSortDriver();
+        //LinkedListDriver.mergeSortDriver();
+
+        //SortingList.sortListOfList();
+
+        PrintLevelByLevel.printLevelByLevel();
     }
 }
