@@ -14,6 +14,8 @@ public class PrintLevelByLevel {
         List<TreeNode> currentLevel = new ArrayList<TreeNode>();
         Queue<TreeNode> next = new LinkedList<TreeNode>();
 
+        current.add(root);
+
         //add root to queue
         while (!current.isEmpty()) {
 
@@ -33,6 +35,7 @@ public class PrintLevelByLevel {
                 current = next;
                 levels.add(currentLevel);
                 currentLevel = new ArrayList<>();
+                next = new LinkedList<>();
             }
 
         }
@@ -60,6 +63,13 @@ public class PrintLevelByLevel {
         TreeNode tn7 = new TreeNode(7);
         tn3.setDec(tn6, tn7);
 
+        //tn5 tn7 children
+        TreeNode tn8 = new TreeNode(8);
+        TreeNode tn9 = new TreeNode(9);
+
+        tn5.setLeft(tn8);
+        tn7.setRight(tn9);
+
         List<List<TreeNode>> levels = getLevelByLevel(tn1);
 
         for (List<TreeNode> level : levels) {
@@ -68,7 +78,7 @@ public class PrintLevelByLevel {
                 System.out.print(" - " + node.value + " - ");
             }
 
-            System.out.print("###");
+            System.out.println("###");
         }
     }
 }
